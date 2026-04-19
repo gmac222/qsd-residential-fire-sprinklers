@@ -11,15 +11,18 @@
   <style>
     :root {
       --font-body: 'Inter', sans-serif;
-      --font-display: 'Montserrat', sans-serif;
+      --font-display: 'Inter', sans-serif;
       --font-mono: 'JetBrains Mono', monospace;
       --accent: #F97316;
       --accent-rgb: 249, 115, 22;
-      --bg: #0A192F;
-      --card-bg: rgba(255, 255, 255, 0.03);
+      --bg: #08090a;
+      --surface-1: rgba(255, 255, 255, 0.02);
+      --surface-2: rgba(255, 255, 255, 0.05);
+      --card-bg: var(--surface-1);
       --card-border: rgba(255, 255, 255, 0.08);
-      --text-primary: #ffffff;
-      --text-secondary: #94A3B8;
+      --text-primary: #f7f8f8;
+      --text-secondary: #d0d6e0;
+      --text-muted: #8a8f98;
     }
 
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -34,6 +37,7 @@
 
     body {
       font-family: var(--font-body);
+      font-feature-settings: "cv01", "ss03";
       background: var(--bg);
       color: var(--text-primary);
       -webkit-font-smoothing: antialiased;
@@ -42,7 +46,7 @@
       line-height: 1.6;
     }
 
-    h1, h2, h3, h4, h5, h6 { font-family: var(--font-display); letter-spacing: -0.02em; line-height: 1.1; }
+    h1, h2, h3, h4, h5, h6 { font-family: var(--font-display); letter-spacing: -0.04em; line-height: 1.1; }
 
     a { color: inherit; text-decoration: none; }
 
@@ -130,7 +134,7 @@
     }
     #navbar.nav-scrolled .nav-inner {
       max-width: 880px;
-      background: rgba(10, 25, 47, 0.85);
+      background: rgba(15, 16, 17, 0.85);
       border: 1px solid var(--card-border);
       backdrop-filter: blur(24px);
       -webkit-backdrop-filter: blur(24px);
@@ -283,10 +287,10 @@
       transform: translateY(-3px) scale(1.02);
     }
     .btn-secondary {
-      background: transparent;
+      background: rgba(255, 255, 255, 0.02);
       color: var(--text-primary);
       padding: 15px 30px;
-      border: 1px solid rgba(15,23,42,0.18);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 12px;
       font-weight: 600;
       font-size: 0.95rem;
@@ -295,7 +299,7 @@
       align-items: center;
       gap: 8px;
     }
-    .btn-secondary:hover { border-color: rgba(15,23,42,0.4); background: rgba(15,23,42,0.04); }
+    .btn-secondary:hover { border-color: rgba(255, 255, 255, 0.15); background: rgba(255, 255, 255, 0.05); }
 
     .scroll-hint {
       display: inline-flex;
@@ -343,7 +347,7 @@
       position: absolute;
       inset: 0;
       pointer-events: none;
-      background: linear-gradient(to bottom, rgba(10,25,47,0.45) 0%, transparent 25%, transparent 75%, rgba(10,25,47,0.65) 100%);
+      background: linear-gradient(to bottom, rgba(8,9,10,0.45) 0%, transparent 25%, transparent 75%, rgba(8,9,10,0.65) 100%);
       z-index: 5;
     }
 
@@ -601,7 +605,7 @@
       margin-top: 50px;
     }
     .audience-card {
-      background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%);
+      background: var(--surface-1);
       border: 1px solid var(--card-border);
       border-radius: 12px;
       padding: 32px 24px;
@@ -619,7 +623,7 @@
 
     /* ─────────── Multi-Step Form ─────────── */
     .ms-container {
-      background: rgba(10, 25, 47, 0.95);
+      background: rgba(15, 16, 17, 0.95);
       border: 1px solid var(--card-border);
       border-radius: 16px;
       padding: 40px;
@@ -640,8 +644,8 @@
     
     .ms-input, .ms-select {
       width: 100%;
-      background: rgba(0,0,0,0.2);
-      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.08);
       border-radius: 8px;
       padding: 14px 16px;
       color: #fff;
@@ -654,8 +658,8 @@
     
     .ms-actions { display: flex; justify-content: flex-end; gap: 16px; margin-top: 32px; }
     .btn-secondary {
-      background: transparent;
-      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.08);
       color: #fff;
       padding: 12px 24px;
       border-radius: 8px;
@@ -668,7 +672,7 @@
     .ms-radio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     .ms-radio-lbl {
       display: flex; align-items: center; justify-content: center;
-      background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.08);
       border-radius: 8px; padding: 16px; cursor: pointer; text-align: center;
       transition: all 0.2s ease; font-weight: 500; font-size: 0.95rem;
     }
