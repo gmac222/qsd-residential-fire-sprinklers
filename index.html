@@ -557,6 +557,131 @@
       line-height: 1.6;
     }
     .footer-copy a { color: var(--accent); }
+
+    /* ─────────── New Sections CSS ─────────── */
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 32px;
+      margin-top: 50px;
+    }
+    .process-step {
+      position: relative;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 32px;
+      text-align: left;
+    }
+    .process-step::before {
+      content: attr(data-step);
+      position: absolute;
+      top: -16px;
+      left: 32px;
+      background: var(--accent);
+      color: #fff;
+      font-family: var(--font-mono);
+      font-weight: 600;
+      font-size: 0.9rem;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(var(--accent-rgb), 0.4);
+    }
+    .process-step h3 { font-size: 1.3rem; margin-bottom: 12px; color: #fff; }
+    .process-step p { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; }
+
+    .audience-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin-top: 50px;
+    }
+    .audience-card {
+      background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 32px 24px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .audience-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      border-color: rgba(249, 115, 22, 0.3);
+    }
+    .audience-card svg { width: 40px; height: 40px; color: var(--accent); margin-bottom: 20px; }
+    .audience-card h3 { font-size: 1.2rem; color: #fff; margin-bottom: 10px; }
+    .audience-card p { font-size: 0.9rem; color: var(--text-secondary); }
+
+    /* ─────────── Multi-Step Form ─────────── */
+    .ms-container {
+      background: rgba(10, 25, 47, 0.95);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 40px;
+      max-width: 600px;
+      margin: 0 auto;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+      text-align: left;
+    }
+    .ms-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 15px; }
+    .ms-title { font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; color: #fff; }
+    .ms-progress { font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent); }
+    
+    .ms-step { display: none; animation: fadeIn 0.4s ease; }
+    .ms-step.active { display: block; }
+    
+    .ms-group { margin-bottom: 24px; }
+    .ms-label { display: block; font-size: 0.95rem; font-weight: 500; margin-bottom: 10px; color: #e2e8f0; }
+    
+    .ms-input, .ms-select {
+      width: 100%;
+      background: rgba(0,0,0,0.2);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      padding: 14px 16px;
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      transition: border-color 0.2s ease;
+    }
+    .ms-input:focus, .ms-select:focus { outline: none; border-color: var(--accent); }
+    .ms-select option { background: var(--bg); color: #fff; }
+    
+    .ms-actions { display: flex; justify-content: flex-end; gap: 16px; margin-top: 32px; }
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.05); }
+    
+    .ms-radio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .ms-radio-lbl {
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px; padding: 16px; cursor: pointer; text-align: center;
+      transition: all 0.2s ease; font-weight: 500; font-size: 0.95rem;
+    }
+    .ms-radio-lbl:hover { border-color: rgba(255,255,255,0.3); }
+    .ms-radio-lbl input { display: none; }
+    .ms-radio-lbl input:checked + span { color: var(--accent); }
+    .ms-radio-lbl:has(input:checked) { border-color: var(--accent); background: rgba(249,115,22,0.05); }
+
+    .ms-success { text-align: center; display: none; padding: 40px 0; }
+    .ms-success svg { width: 64px; height: 64px; color: #10B981; margin-bottom: 20px; }
+    .ms-success h3 { font-size: 1.8rem; margin-bottom: 12px; }
+
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
   </style>
 </head>
 <body>
@@ -607,8 +732,8 @@
     <div class="hero-content-wrapper" style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: flex-start; padding: 0 5vw; z-index: 10; pointer-events: none;">
       <div class="hero-content" style="text-align: left; max-width: 800px; margin: 0; position: static; pointer-events: auto;">
         <div class="hero-eyebrow"><span class="dot"></span> BS 9251 · IFC Certified · Building Safety Act 2022</div>
-        <h1 class="hero-title">Built-in protection<br>for the homes <span class="accent">you're accountable for.</span></h1>
-        <p class="hero-subtitle" style="margin-left: 0; margin-right: 0; color: #cbd5e1; font-weight: 400; font-size: 1.15rem; max-width: 680px; text-shadow: 0 2px 10px rgba(0,0,0,0.8);">Residential fire sprinkler systems designed to BS 9251 and installed by IFC-certified engineers. For UK housing associations, local authorities, and block management companies under post-Grenfell and Building Safety Act compliance pressure.</p>
+        <h1 class="hero-title">BS 9251 Compliant <br>Fire Sprinkler <span class="accent">Systems.</span></h1>
+        <p class="hero-subtitle" style="margin-left: 0; margin-right: 0; color: #cbd5e1; font-weight: 400; font-size: 1.15rem; max-width: 680px; text-shadow: 0 2px 10px rgba(0,0,0,0.8);">Protecting lives and securing compliance. We design, install, and commission residential fire sprinkler systems for housing associations, care homes, and developers across the UK. Zero hassle, total assurance.</p>
         <div class="hero-buttons" style="justify-content: flex-start; margin-bottom: 0;">
           <a href="#cta" class="btn-primary">Request a Compliance Survey →</a>
         </div>
@@ -663,6 +788,60 @@
       Site proudly sponsored by <a href="https://qsdfire.com/" target="_blank" rel="noopener" style="text-decoration: underline; color: inherit; transition: color 0.2s ease;">QSD Fire Systems</a>
     </div>
 
+  </div>
+</section>
+
+<!-- ═══════════════ Who We Protect ═══════════════ -->
+<section id="audiences" style="padding: 100px 5%; background: var(--bg); border-top: 1px solid rgba(255,255,255,0.05); text-align: center;">
+  <p class="section-eyebrow">Who We Protect</p>
+  <h2 class="section-title" style="margin-bottom: 20px;">Dedicated Fire Safety for the Residential Sector</h2>
+  <div class="audience-grid" style="max-width: 1200px; margin: 50px auto 0;">
+    <div class="audience-card">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <h3>Housing Associations</h3>
+      <p>Retrofit installations with minimal disruption for occupied estates and local authority high-rises under the Building Safety Act.</p>
+    </div>
+    <div class="audience-card">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
+      <h3>Care Homes</h3>
+      <p>Fast-tracked compliance installations to meet the new BS 9991:2024 care home mandates with sensitive resident protocols.</p>
+    </div>
+    <div class="audience-card">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      <h3>Property Developers</h3>
+      <p>Seamless integration with your build schedule, from initial hydraulic design through to final system commissioning.</p>
+    </div>
+    <div class="audience-card">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+      <h3>Block Managers</h3>
+      <p>Comprehensive annual inspection programmes, maintenance, and 24/7 call-outs to keep existing systems fully compliant.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ Our Process ═══════════════ -->
+<section id="process" style="padding: 100px 5%; background: #0A1925; border-top: 1px solid rgba(255,255,255,0.05); text-align: center;">
+  <p class="section-eyebrow">Our Process</p>
+  <h2 class="section-title">End-to-End Compliance Delivery</h2>
+  <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto; line-height: 1.8;">We handle everything from the initial water pressure test to the final handover certificate, ensuring a seamless experience for your accountable person.</p>
+  
+  <div class="process-grid" style="max-width: 1200px; margin: 50px auto 0;">
+    <div class="process-step" data-step="1">
+      <h3>Survey &amp; Design</h3>
+      <p>We conduct a free site survey, verify mains pressure, and produce fully hydraulically calculated designs to BS 9251:2021 standards.</p>
+    </div>
+    <div class="process-step" data-step="2">
+      <h3>Installation</h3>
+      <p>Our IFC-certified engineers install your system safely. For retrofits, we employ strict resident-liaison protocols to ensure minimal disruption.</p>
+    </div>
+    <div class="process-step" data-step="3">
+      <h3>Commissioning</h3>
+      <p>Systems are comprehensively pressure-tested and commissioned, providing you with all necessary handover documentation for your Golden Thread.</p>
+    </div>
+    <div class="process-step" data-step="4">
+      <h3>Maintenance</h3>
+      <p>We offer fixed-fee annual inspection and maintenance contracts to ensure ongoing regulatory compliance year after year.</p>
+    </div>
   </div>
 </section>
 
@@ -726,13 +905,119 @@
   </div>
 </section>
 
-<!-- ═══════════════ CTA ═══════════════ -->
-<section id="cta">
+<!-- ═══════════════ CTA (Multi-Step Form) ═══════════════ -->
+<section id="cta" style="position: relative; overflow: hidden; padding: 120px 5%; background: var(--bg);">
   <div class="cta-bg-orb"></div>
-  <div class="cta-content">
-    <h2>Request a Compliance Survey</h2>
-    <p>We'll review your building, propose a BS 9251-compliant scheme, and give you a written cost — usually within ten working days. No obligation, no procurement runaround.</p>
-    <a href="mailto:hello@example.co.uk" class="btn-primary btn-large">Book a Survey →</a>
+  <div style="position: relative; z-index: 10; max-width: 1000px; margin: 0 auto; text-align: center; margin-bottom: 40px;">
+    <h2 style="font-family: var(--font-display); font-size: 3rem; font-weight: 700; margin-bottom: 16px;">Get a Compliance Quote</h2>
+    <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto; font-size: 1.1rem; line-height: 1.6;">Enter your project details below to receive a BS 9251-compliant proposal. Fast, transparent, and built for the residential sector.</p>
+  </div>
+  
+  <div class="ms-container" style="position: relative; z-index: 10;">
+    <form id="quoteForm">
+      <!-- Step 1 -->
+      <div class="ms-step active" id="step1">
+        <div class="ms-header">
+          <div class="ms-title">Project Details</div>
+          <div class="ms-progress">Step 1 of 3</div>
+        </div>
+        <div class="ms-group">
+          <label class="ms-label">What best describes your organisation?</label>
+          <div class="ms-radio-grid">
+            <label class="ms-radio-lbl">
+              <input type="radio" name="orgType" value="Housing Association" checked>
+              <span>Housing Association</span>
+            </label>
+            <label class="ms-radio-lbl">
+              <input type="radio" name="orgType" value="Care Home">
+              <span>Care Home</span>
+            </label>
+            <label class="ms-radio-lbl">
+              <input type="radio" name="orgType" value="Property Developer">
+              <span>Developer / Builder</span>
+            </label>
+            <label class="ms-radio-lbl">
+              <input type="radio" name="orgType" value="Block Management">
+              <span>Block Management</span>
+            </label>
+          </div>
+        </div>
+        <div class="ms-group">
+          <label class="ms-label" for="projectType">Project Type</label>
+          <select class="ms-select" id="projectType" name="projectType">
+            <option value="Retrofit">Retrofit (Existing Building)</option>
+            <option value="New Build">New Build</option>
+            <option value="Maintenance">Maintenance / Takeover</option>
+          </select>
+        </div>
+        <div class="ms-actions">
+          <button type="button" class="btn-primary" onclick="nextStep(2)">Next Step →</button>
+        </div>
+      </div>
+      
+      <!-- Step 2 -->
+      <div class="ms-step" id="step2">
+        <div class="ms-header">
+          <div class="ms-title">Scale & Urgency</div>
+          <div class="ms-progress">Step 2 of 3</div>
+        </div>
+        <div class="ms-group">
+          <label class="ms-label" for="unitCount">Approximate Number of Units/Flats</label>
+          <select class="ms-select" id="unitCount" name="unitCount">
+            <option value="1-10">1 - 10 Units</option>
+            <option value="11-50">11 - 50 Units</option>
+            <option value="51-100">51 - 100 Units</option>
+            <option value="100+">100+ Units</option>
+          </select>
+        </div>
+        <div class="ms-group">
+          <label class="ms-label" for="timeline">Required Start Date</label>
+          <select class="ms-select" id="timeline" name="timeline">
+            <option value="ASAP">As soon as possible</option>
+            <option value="Within 3 Months">Within 3 Months</option>
+            <option value="3-6 Months">3-6 Months</option>
+            <option value="Planning Stage">Just planning/budgeting</option>
+          </select>
+        </div>
+        <div class="ms-actions" style="justify-content: space-between;">
+          <button type="button" class="btn-secondary" onclick="nextStep(1)">← Back</button>
+          <button type="button" class="btn-primary" onclick="nextStep(3)">Next Step →</button>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="ms-step" id="step3">
+        <div class="ms-header">
+          <div class="ms-title">Your Details</div>
+          <div class="ms-progress">Final Step</div>
+        </div>
+        <div class="ms-group">
+          <label class="ms-label" for="fullName">Full Name</label>
+          <input type="text" class="ms-input" id="fullName" name="fullName" required placeholder="e.g. John Smith">
+        </div>
+        <div class="ms-group">
+          <label class="ms-label" for="email">Work Email</label>
+          <input type="email" class="ms-input" id="email" name="email" required placeholder="john@example.com">
+        </div>
+        <div class="ms-group">
+          <label class="ms-label" for="phone">Phone Number</label>
+          <input type="tel" class="ms-input" id="phone" name="phone" required placeholder="07123 456789">
+        </div>
+        <div class="ms-actions" style="justify-content: space-between;">
+          <button type="button" class="btn-secondary" onclick="nextStep(2)">← Back</button>
+          <button type="button" class="btn-primary" onclick="submitForm(event)" id="submitBtn">Get My Quote</button>
+        </div>
+      </div>
+      
+      <!-- Success State -->
+      <div class="ms-step" id="stepSuccess">
+        <div class="ms-success">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 64px; height: 64px; color: #10B981; margin: 0 auto 20px;"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <h3>Request Received</h3>
+          <p style="color: var(--text-secondary);">Thank you. A specialist from our team will review your project details and contact you shortly with the next steps.</p>
+        </div>
+      </div>
+    </form>
   </div>
 </section>
 
@@ -937,6 +1222,44 @@ specObserver.observe(document.getElementById('specs'));
 
 /* ═══════════════ Init ═══════════════ */
 // Video handles its own load event
+
+/* ═══════════════ Multi-Step Form Logic ═══════════════ */
+function nextStep(step) {
+  document.querySelectorAll('.ms-step').forEach(el => el.classList.remove('active'));
+  document.getElementById('step' + step).classList.add('active');
+}
+
+function submitForm(e) {
+  e.preventDefault();
+  
+  // Basic validation check
+  const form = document.getElementById('quoteForm');
+  if(!form.reportValidity()) return;
+
+  const btn = document.getElementById('submitBtn');
+  const originalText = btn.innerHTML;
+  btn.innerHTML = 'Submitting...';
+  btn.disabled = true;
+
+  // Collect data
+  const formData = new FormData(form);
+  const data = Object.fromEntries(formData.entries());
+
+  // NOTE: This is where we post to the HighLevel Webhook URL once provided.
+  // fetch('YOUR_HIGHLEVEL_WEBHOOK_URL', {
+  //   method: 'POST',
+  //   headers: { 'Content-Type': 'application/json' },
+  //   body: JSON.stringify(data)
+  // }).then(() => { ... })
+
+  // Simulate network request for now
+  setTimeout(() => {
+    document.querySelectorAll('.ms-step').forEach(el => el.classList.remove('active'));
+    const successEl = document.getElementById('stepSuccess');
+    successEl.classList.add('active');
+    successEl.querySelector('.ms-success').style.display = 'block';
+  }, 1200);
+}
 </script>
 
 </body>
