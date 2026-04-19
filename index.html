@@ -764,34 +764,50 @@ const loaderBar = document.getElementById('loaderBar');
 const loaderEl = document.getElementById('loader');
 
 const frameCount = 192;
-const images = [];
+const images = new Array(frameCount);
 let imagesLoaded = 0;
+const INITIAL_LOAD_COUNT = 15;
+let loaderDismissed = false;
 
-// Preload images
-for (let i = 1; i <= frameCount; i++) {
+function loadFrame(i, isInitial = false) {
   const img = new Image();
+  images[i - 1] = img;
   const frameNum = i.toString().padStart(4, '0');
   img.src = `frames/frame_${frameNum}.jpg`;
   
   img.onload = () => {
     imagesLoaded++;
-    loaderBar.style.width = `${(imagesLoaded / frameCount) * 100}%`;
+    if (isInitial && !loaderDismissed) {
+      loaderBar.style.width = `${(imagesLoaded / INITIAL_LOAD_COUNT) * 100}%`;
+    }
     
     // Draw the first frame once it loads
-    if (i === 1 || imagesLoaded === 1) {
+    if (i === 1 || (isInitial && imagesLoaded === 1)) {
       frameCanvas.width = img.naturalWidth || img.width;
       frameCanvas.height = img.naturalHeight || img.height;
       frameCtx.drawImage(img, 0, 0, frameCanvas.width, frameCanvas.height);
     }
     
-    if (imagesLoaded === frameCount) {
+    if (imagesLoaded >= INITIAL_LOAD_COUNT && !loaderDismissed) {
+      loaderDismissed = true;
       setTimeout(() => {
         loaderEl.style.opacity = '0';
         setTimeout(() => loaderEl.style.display = 'none', 600);
       }, 200);
+      loadRemainingFrames();
     }
   };
-  images.push(img);
+}
+
+function loadRemainingFrames() {
+  for (let i = INITIAL_LOAD_COUNT + 1; i <= frameCount; i++) {
+    loadFrame(i, false);
+  }
+}
+
+// Start loading first batch
+for (let i = 1; i <= INITIAL_LOAD_COUNT; i++) {
+  loadFrame(i, true);
 }
 
 // Fallback to hide loader if images take too long
@@ -799,8 +815,12 @@ setTimeout(() => {
   if (loaderEl.style.display !== 'none') {
     loaderEl.style.opacity = '0';
     setTimeout(() => loaderEl.style.display = 'none', 600);
+    if (!loaderDismissed) {
+      loaderDismissed = true;
+      loadRemainingFrames();
+    }
   }
-}, 5000);
+}, 1000);
 
 /* ═══════════════ Annotation Cards + Snap-Stop ═══════════════ */
 const cards = document.querySelectorAll('.annotation-card');
