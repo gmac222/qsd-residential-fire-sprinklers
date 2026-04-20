@@ -694,25 +694,55 @@ function nextStep(step) {
 
 function submitForm(e) {
   e.preventDefault();
+  
+  const form = document.getElementById('quoteForm');
+  if(form && !form.reportValidity()) return;
+
+  const honeypot = document.getElementById('company_website');
+  if (honeypot && honeypot.value !== '') {
+    console.warn('Bot detected.');
+    return;
+  }
+
   const btn = document.getElementById('submitBtn');
-  btn.innerHTML = 'Submitting...';
-  btn.style.opacity = '0.7';
+  if(btn) {
+    btn.innerHTML = 'Submitting...';
+    btn.disabled = true;
+    btn.style.opacity = '0.7';
+  }
   
-  // HighLevel Webhook
-  const webhookUrl = "https://services.leadconnectorhq.com/hooks/N2K6N3L9K2L3";
+  const webhookUrl = "https://services.leadconnectorhq.com/hooks/uDQMr5nOHXbuCi1aGoml/webhook-trigger/0339ffaa-9c9a-44b5-8d1d-583af2aef960";
   
+  const getVal = id => { const el = document.getElementById(id); return el ? el.value : ''; };
+  const orgTypeEl = document.querySelector('input[name="orgType"]:checked');
+  const orgType = orgTypeEl ? orgTypeEl.value : '';
+  const projectType = getVal('projectType');
+  const unitCount = getVal('unitCount');
+  const timeline = getVal('timeline');
+  const fullName = getVal('fullName');
+  const email = getVal('email');
+  const phone = getVal('phone');
+
   const payload = {
-    firstName: document.getElementById('fullName').value.split(' ')[0] || '',
-    lastName: document.getElementById('fullName').value.split(' ').slice(1).join(' ') || '',
-    email: document.getElementById('email').value,
-    phone: document.getElementById('phone').value,
+    name: fullName,
+    firstName: fullName ? fullName.split(' ')[0] : '',
+    lastName: fullName && fullName.includes(' ') ? fullName.split(' ').slice(1).join(' ') : '',
+    email: email,
+    phone: phone,
+    companyName: orgType,
+    source: "Website Quote Form",
+    tags: [
+      orgType,
+      projectType ? 'Project: ' + projectType : '',
+      unitCount ? 'Units: ' + unitCount : '',
+      timeline ? 'Timeline: ' + timeline : ''
+    ].filter(Boolean),
     customData: {
-      organizationType: document.querySelector('input[name="orgType"]:checked').value,
-      projectType: document.getElementById('projectType').value,
-      unitCount: document.getElementById('unitCount').value,
-      timeline: document.getElementById('timeline').value,
-      source: "Website Quote Form",
-      pageUrl: "qsd-fire.co.uk/about.html"
+      organizationType: orgType,
+      projectType: projectType,
+      unitCount: unitCount,
+      timeline: timeline,
+      pageUrl: window.location.href
     }
   };
 
@@ -722,11 +752,19 @@ function submitForm(e) {
     body: JSON.stringify(payload)
   }).then(response => {
     document.querySelectorAll('.ms-step').forEach(el => el.classList.remove('active'));
-    document.getElementById('stepSuccess').classList.add('active');
+    const successEl = document.getElementById('stepSuccess');
+    if(successEl) {
+      successEl.classList.add('active');
+      const msg = successEl.querySelector('.ms-success');
+      if(msg) msg.style.display = 'block';
+    }
   }).catch(error => {
     console.error('Error submitting form:', error);
-    btn.innerHTML = 'Error. Try Again.';
-    btn.style.opacity = '1';
+    if(btn) {
+      btn.innerHTML = 'Error. Try Again.';
+      btn.disabled = false;
+      btn.style.opacity = '1';
+    }
   });
 }
 </script>
