@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <link rel="icon" type="image/png" href="favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Residential Fire Sprinklers — Built-in protection for the homes you're accountable for</title>
-  <meta name="description" content="Residential fire sprinkler systems designed to BS 9251 and installed by BAFSA members. For UK housing associations, local authorities and block managers under Building Safety Act 2022.">
+  <title>Building Safety Act 2022 Compliance | Residential Fire Sprinklers UK</title>
+  <meta name="description" content="Understand the Building Safety Act 2022 requirements for residential fire sprinklers. Ensure compliance for housing associations, care homes, and developers.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -839,23 +839,9 @@
 <body>
 
 
-<!-- ═══════════════ Loader ═══════════════ -->
-<div id="loader">
-  <div class="loader-content">
-    <div class="loader-logo">
-      <svg class="glyph" viewBox="0 0 32 32" fill="none">
-        <circle cx="16" cy="16" r="3" fill="#F97316"/>
-        <path d="M16 6 L16 2 M16 30 L16 26 M6 16 L2 16 M30 16 L26 16 M9 9 L6 6 M23 9 L26 6 M9 23 L6 26 M23 23 L26 26" stroke="#F97316" stroke-width="1.5" stroke-linecap="round"/>
-      </svg>
-      <span class="wordmark">Residential Fire Sprinklers</span>
-    </div>
-    <p class="loader-text">Loading</p>
-    <div class="loader-bar-track"><div class="loader-bar-fill" id="loaderBar"></div></div>
-  </div>
-</div>
 
-<!-- ═══════════════ Scroll Progress ═══════════════ -->
-<div id="scrollProgress"></div>
+
+
 
 <!-- ═══════════════ Navbar ═══════════════ -->
 <nav id="navbar">
@@ -868,217 +854,62 @@
       <span class="wordmark">Residential Fire Sprinklers</span>
     </a>
     <div class="nav-links">
-      <a href="#features">Compliance</a>
-      <a href="#specs">Performance</a>
-      <a href="bsa-2022.html">BSA 2022</a>
+      <a href="index.html#features">Compliance</a>
+      <a href="index.html#specs">Performance</a>
       <a href="#cta" class="nav-cta">Request Survey</a>
     </div>
   </div>
 </nav>
 
-<!-- ═══════════════ Hero (Scroll Animation) ═══════════════ -->
-<section class="scroll-animation" id="hero">
-  <div class="scroll-sticky">
-    <canvas id="frameCanvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; transform: scale(1.35); transform-origin: center bottom;"></canvas>
-    <div class="scroll-vignette" style="background: linear-gradient(to right, rgba(10,25,47,0.85) 0%, rgba(10,25,47,0.6) 40%, transparent 100%); z-index: 5;"></div>
+<!-- ═══════════════ Hero (Static) ═══════════════ -->
+<section id="hero" style="padding: 180px 5% 100px; background: linear-gradient(180deg, var(--bg) 0%, #0A1925 100%); position: relative; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center;">
+  <div style="position: absolute; inset: 0; background: radial-gradient(circle at center, transparent 0%, var(--bg) 100%); pointer-events: none;"></div>
+  <div style="position: relative; z-index: 10; max-width: 900px; margin: 0 auto;">
+    <div class="hero-eyebrow" style="justify-content: center;"><span class="dot"></span> Building Safety Act 2022</div>
+    <h1 class="hero-title" style="font-size: clamp(2.5rem, 5vw, 3.8rem); margin-bottom: 24px; line-height: 1.1;">The Golden Thread of <br><span class="accent">Fire Safety Compliance</span></h1>
+    <p class="hero-subtitle" style="margin: 0 auto 40px; color: var(--text-secondary); font-size: 1.2rem; max-width: 680px; line-height: 1.6;">The regulatory landscape has changed forever. Understand your duties as an Accountable Person and how our BS 9251 compliant residential sprinklers close the gaps in your safety case.</p>
+    <a href="#cta" class="btn-primary" style="display: inline-block;">Get a Compliance Quote →</a>
+  </div>
+</section>
 
-    <div class="hero-content-wrapper" style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: flex-start; padding: 0 5vw; z-index: 10; pointer-events: none;">
-      <div class="hero-content" style="text-align: left; max-width: 800px; margin: 0; position: static; pointer-events: auto;">
-        <div class="hero-eyebrow"><span class="dot"></span> BS 9251 · IFC Certified · Building Safety Act 2022</div>
-        <h1 class="hero-title" style="letter-spacing: -0.04em;"><span style="color: #38bdf8; font-size: 0.65em; font-family: var(--font-mono); font-weight: 500; letter-spacing: 0;">BS 9251 Compliant</span> <br><span style="color: #fff;">Residential Fire Sprinkler Systems.</span></h1>
-        <p class="hero-subtitle" style="margin-left: 0; margin-right: 0; color: #cbd5e1; font-weight: 400; font-size: 1.15rem; max-width: 680px; text-shadow: 0 2px 10px rgba(0,0,0,0.8);">Protecting lives and securing compliance. We design, install, and commission residential fire sprinkler systems for housing associations, care homes, and developers across the UK. Zero hassle, total assurance.</p>
-        <div class="hero-buttons" style="justify-content: flex-start; margin-bottom: 0;">
-          <a href="#cta" class="btn-primary">Request a Compliance Survey →</a>
+<!-- ═══════════════ BSA Content ═══════════════ -->
+<section id="bsa-content" style="padding: 80px 5%; background: var(--bg);">
+  <div style="max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr; gap: 60px;">
+    
+    <div style="display: flex; flex-direction: column; gap: 40px;">
+      <article style="background: var(--surface-1); border: 1px solid var(--card-border); border-radius: 12px; padding: 40px; font-size: 1.1rem; line-height: 1.8; color: var(--text-secondary);">
+        <h2 style="color: #fff; font-size: 2rem; margin-bottom: 24px; font-family: var(--font-display);">A Paradigm Shift in Residential Safety</h2>
+        <p style="margin-bottom: 20px;">The <a href="https://www.gov.uk/guidance/the-building-safety-act" target="_blank" rel="nofollow noopener" style="color: var(--accent); text-decoration: underline;">Building Safety Act 2022</a> represents the most significant reform to UK building safety regulations in decades. It imposes strict new duties on those responsible for the safety of high-risk residential buildings (HRRBs) and standardizes the approach to life-safety systems across all new and existing residential developments.</p>
+        
+        <div style="margin: 40px 0;">
+          <img src="assets/bsa_compliance_blueprint.png" alt="Building Safety Act Compliance Documents and Blueprints" style="width: 100%; border-radius: 8px; border: 1px solid var(--card-border); box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
         </div>
-      </div>
+
+        <h3 style="color: #fff; font-size: 1.5rem; margin-bottom: 16px; margin-top: 40px;">The Accountable Person</h3>
+        <p style="margin-bottom: 20px;">Under the Act, every high-risk building must have a designated 'Principal Accountable Person'. This individual or organization bears the legal responsibility for assessing and managing fire and structural safety risks. Ignorance is no longer a defense. Active fire protection, such as a BS 9251 compliant residential sprinkler system, is universally recognized by the <a href="https://www.hse.gov.uk/building-safety/index.htm" target="_blank" rel="nofollow noopener" style="color: var(--accent); text-decoration: underline;">Health and Safety Executive (HSE)</a> as a primary mitigating factor against fire propagation.</p>
+        
+        <h3 style="color: #fff; font-size: 1.5rem; margin-bottom: 16px; margin-top: 40px;">Maintaining the "Golden Thread"</h3>
+        <p style="margin-bottom: 20px;">A core pillar of the BSA 2022 is the "Golden Thread" of information. This mandates that accurate, up-to-date digital records of a building's safety systems are maintained from design and construction through to occupation and maintenance.</p>
+        <p style="margin-bottom: 20px;">At QSD Fire Systems, our end-to-end process is built around the Golden Thread. We provide complete, transparent documentation at every stage:</p>
+        <ul style="margin-bottom: 20px; padding-left: 20px;">
+          <li style="margin-bottom: 10px;">Hydraulic calculations and CAD designs.</li>
+          <li style="margin-bottom: 10px;">Third-party accredited (IFC) installation certificates.</li>
+          <li style="margin-bottom: 10px;">Full commissioning reports and water supply pressure test logs.</li>
+          <li style="margin-bottom: 10px;">Digital maintenance logs aligned with BS 9251 annual inspection requirements.</li>
+        </ul>
+
+        <div style="background: rgba(249, 115, 22, 0.1); border-left: 4px solid var(--accent); padding: 24px; border-radius: 0 8px 8px 0; margin: 40px 0;">
+          <h4 style="color: #fff; margin-bottom: 12px; font-size: 1.2rem;">2026 Updates: Care Homes & BS 9991</h4>
+          <p style="font-size: 1rem; margin: 0;">Recent regulatory shifts and the introduction of BS 9991:2024 have dramatically impacted the care sector. It is now a mandate that newly constructed care homes and major refurbishments feature professional fire sprinkler systems, irrespective of building height. Transitioning to the BS EN 13501 testing classification also demands higher rigor in system component selection.</p>
+        </div>
+
+        <h3 style="color: #fff; font-size: 1.5rem; margin-bottom: 16px; margin-top: 40px;">Why Retrofit with IFC-Certified Installers?</h3>
+        <p>The Building Safety Regulator has made it clear that competence is key. When retrofitting a sprinkler system into an occupied housing estate or care home, using non-accredited plumbers or general contractors exposes the Accountable Person to massive legal risk. Our engineers are independently audited and IFC-certified, ensuring your system performs when lives depend on it.</p>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════ Specs ═══════════════ -->
-<section id="specs" style="padding: 120px 5%; background: #0A1925; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05);">
-  <p class="specs-eyebrow">Performance · Standards · Lifespan</p>
-  <h2 class="specs-heading">A residential sprinkler is the single most reliable life-safety system in your building.</h2>
-  <div class="specs-grid">
-    <div class="spec-item" data-target="60" data-suffix="s">
-      <span class="spec-number">0</span>
-      <span class="spec-label">Average activation time</span>
-    </div>
-    <div class="spec-item" data-target="99" data-suffix="%">
-      <span class="spec-number">0</span>
-      <span class="spec-label">Fires controlled by first head</span>
-    </div>
-    <div class="spec-item" data-target="11" data-suffix="m+">
-      <span class="spec-number">0</span>
-      <span class="spec-label">BSA 2022 mandate height</span>
-    </div>
-    <div class="spec-item" data-target="50" data-suffix="yr">
-      <span class="spec-number">0</span>
-      <span class="spec-label">System design life</span>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════ Nationwide Coverage ═══════════════ -->
-<section id="coverage" style="padding: 100px 5%; background: var(--bg); border-top: 1px solid rgba(255,255,255,0.05);">
-  <div style="max-width: 1200px; margin: 0 auto; display: flex; align-items: stretch; gap: 80px; flex-wrap: wrap;">
-    <div style="flex: 1; min-width: 300px; display: flex; justify-content: center; align-items: center;">
-      <img src="assets/uk_coverage_map.png" alt="Map showing nationwide UK coverage for residential fire sprinkler installations" style="width: 100%; height: 100%; min-height: 400px; object-fit: contain; display: block;">
-    </div>
-    <div style="flex: 1; min-width: 300px; text-align: left;">
-      <p class="section-eyebrow" style="margin-bottom: 15px; text-align: left;">UK Residential Fire Protection Contractors</p>
-      <h2 style="font-size: 2.8rem; margin-bottom: 24px; line-height: 1.1; font-weight: 700; color: #fff;">Nationwide UK Fire Sprinkler <span class="accent">Installation Company</span></h2>
-      <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.8; margin-bottom: 24px;">
-        QSD Fire Systems has established a reputation as a leading residential fire sprinkler contractor across the UK. Based near Wrexham, North Wales, we offer our comprehensive passive and active fire protection solutions nationwide.
-      </p>
-      <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.8; margin-bottom: 24px;">
-        We have a dedicated workforce of IFC-certified engineers possessing unrivalled expertise. We provide end-to-end design, specification, and installation services for complex residential developments, ensuring housing associations, local authorities, and block managers meet the stringent requirements of the Building Safety Act 2022.
-      </p>
-      <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.8;">
-        Our head office is strategically positioned to serve clients effectively across England and Wales, with dedicated project management ensuring compliance and safety on every residential development.
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════ Media & Accreditations ═══════════════ -->
-<section id="media-accreditations" style="padding: 100px 5%; background: var(--bg); text-align: center; border-bottom: 1px solid rgba(255,255,255,0.05);">
-  <div style="max-width: 1000px; margin: 0 auto;">
-    
-    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.5); margin-bottom: 80px; background: #000;">
-      <iframe src="https://www.youtube.com/embed/HjQyO_msPoU?rel=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allowfullscreen title="Fire Sprinkler System Demonstration"></iframe>
-    </div>
-
-    <p class="section-eyebrow" style="margin-bottom: 30px;">Independently Audited & Certified</p>
-    <div class="trust-badges" style="display: flex; justify-content: center; gap: 32px; align-items: center; flex-wrap: wrap;">
-      <img src="assets/logos/accred1.png" alt="Accreditation" style="height: 90px; background: rgba(255,255,255,0.95); padding: 12px 24px; border-radius: 12px; object-fit: contain; box-shadow: 0 8px 24px rgba(0,0,0,0.4);">
-      <img src="assets/logos/accred3.png" alt="Accreditation" style="height: 90px; background: rgba(255,255,255,0.95); padding: 12px 24px; border-radius: 12px; object-fit: contain; box-shadow: 0 8px 24px rgba(0,0,0,0.4);">
-      <img src="assets/logos/accred4.png" alt="Accreditation" style="height: 90px; background: rgba(255,255,255,0.95); padding: 12px 24px; border-radius: 12px; object-fit: contain; box-shadow: 0 8px 24px rgba(0,0,0,0.4);">
-      <img src="assets/logos/accred5.png" alt="Accreditation" style="height: 90px; background: rgba(255,255,255,0.95); padding: 12px 24px; border-radius: 12px; object-fit: contain; box-shadow: 0 8px 24px rgba(0,0,0,0.4);">
-      <img src="assets/logos/bafsa.png" alt="BAFSA" style="height: 90px; background: rgba(255,255,255,0.95); padding: 12px 24px; border-radius: 12px; object-fit: contain; box-shadow: 0 8px 24px rgba(0,0,0,0.4);">
-      <img src="assets/logos/bmtrada.png" alt="BM Trada" style="height: 90px; background: rgba(255,255,255,0.95); padding: 12px 24px; border-radius: 12px; object-fit: contain; box-shadow: 0 8px 24px rgba(0,0,0,0.4);">
-    </div>
-
-    <div style="margin-top: 50px; font-size: 0.75rem; color: var(--text-secondary); opacity: 0.6; text-transform: uppercase; letter-spacing: 0.1em;">
-      Site proudly sponsored by <a href="https://qsdfire.com/" target="_blank" rel="noopener" style="text-decoration: underline; color: inherit; transition: color 0.2s ease;">QSD Fire Systems</a>
-    </div>
-
-  </div>
-</section>
-
-<!-- ═══════════════ Social Trust ═══════════════ -->
-<section id="testimonials" style="padding: 100px 5%; background: #0A1925; border-top: 1px solid rgba(255,255,255,0.05); text-align: center; overflow: hidden;">
-  <div style="max-width: 1200px; margin: 0 auto;">
-    <p class="section-eyebrow" style="margin-bottom: 10px;">Verified Reviews</p>
-    <h2 style="font-family: var(--font-display); font-size: 2.5rem; font-weight: 700; margin-bottom: 20px;">Trusted by the Industry</h2>
-    
-    <div class="testimonials-carousel-wrapper" id="staggerCarousel">
-      <!-- DOM injected via JS -->
-      <div class="carousel-controls">
-        <button class="carousel-btn" id="btnPrev" aria-label="Previous">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
-        </button>
-        <button class="carousel-btn" id="btnNext" aria-label="Next">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
-        </button>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ═══════════════ Our Process ═══════════════ -->
-<section id="process" style="padding: 100px 5%; background: #0A1925; border-top: 1px solid rgba(255,255,255,0.05); text-align: center;">
-  <p class="section-eyebrow">Our Process</p>
-  <h2 class="section-title">End-to-End Compliance Delivery</h2>
-  <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto; line-height: 1.8;">We handle everything from the initial water pressure test to the final handover certificate, ensuring a seamless experience for your accountable person.</p>
-  
-  <div class="process-grid" style="max-width: 1200px; margin: 50px auto 0;">
-    <div class="process-step" data-step="1">
-      <h3>Survey &amp; Design</h3>
-      <p>We conduct a free site survey, verify mains pressure, and produce fully hydraulically calculated designs to BS 9251:2021 standards.</p>
-    </div>
-    <div class="process-step" data-step="2">
-      <h3>Installation</h3>
-      <p>Our IFC-certified engineers install your system safely. For retrofits, we employ strict resident-liaison protocols to ensure minimal disruption.</p>
-    </div>
-    <div class="process-step" data-step="3">
-      <h3>Commissioning</h3>
-      <p>Systems are comprehensively pressure-tested and commissioned, providing you with all necessary handover documentation for your Golden Thread.</p>
-    </div>
-    <div class="process-step" data-step="4">
-      <h3>Maintenance</h3>
-      <p>We offer fixed-fee annual inspection and maintenance contracts to ensure ongoing regulatory compliance year after year.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════ Features ═══════════════ -->
-<section id="features">
-  <p class="section-eyebrow">What we deliver</p>
-  <h2 class="section-title">Every gap in your compliance file, closed.</h2>
-  <div class="features-grid">
-    <div class="feature-card">
-      <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg></div>
-      <h3>BS 9251:2021 Design</h3>
-      <p>Hydraulically calculated systems designed to the British Standard for residential and domestic sprinkler installations. Drawings, calculations, and risk classification handed over with the system.</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
-      <h3>Building Safety Act 2022</h3>
-      <p>Installations sit comfortably inside your golden-thread documentation. Buildings over 11m, high-risk buildings, retrofits — we deliver the paperwork your Accountable Person needs to discharge their duties.</p>
-      <p style="margin-top: 12px;"><a href="bsa-2022.html" style="color: var(--accent); text-decoration: underline; font-weight: 500; font-size: 0.9rem;">Learn about BSA Compliance &rarr;</a></p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
-      <h3>Third-Party Accredited</h3>
-      <p>Holding IFC, ISO9001, and CHAS certifications. Independently audited installation work, with fully accredited engineers on every site — never subcontracted general trades.</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
-      <h3>Commissioning &amp; Certification</h3>
-      <p>Hydraulic testing, witness testing, signed-off commissioning certificates. Full handover documentation — no gaps, no missing test records, no surprises during your next fire risk assessment.</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg></div>
-      <h3>Annual Inspection Programme</h3>
-      <p>Quarterly visual checks, annual full inspections per BS 9251. Fixed-fee maintenance contracts that keep your system — and your compliance file — in good standing year after year.</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
-      <h3>Housing Association Ready</h3>
-      <p>We work alongside your fire risk assessor, asset team, and resident liaison officer. Phased programmes, occupied-flat protocols, scheduled-access rules — minimal disruption to residents.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════ Who We Protect ═══════════════ -->
-<section id="audiences" style="padding: 100px 5%; background: #0A1925; border-top: 1px solid rgba(255,255,255,0.05); text-align: center;">
-  <p class="section-eyebrow">Who We Protect</p>
-  <h2 class="section-title" style="margin-bottom: 20px;">Dedicated Fire Safety for the Residential Sector</h2>
-  <div class="audience-grid" style="max-width: 1200px; margin: 50px auto 0;">
-    <div class="audience-card">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-      <h3>Housing Associations</h3>
-      <p>Retrofit installations with minimal disruption for occupied estates and local authority high-rises under the Building Safety Act.</p>
-    </div>
-    <div class="audience-card">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
-      <h3>Care Homes</h3>
-      <p>Fast-tracked compliance installations to meet the new BS 9991:2024 care home mandates with sensitive resident protocols.</p>
-    </div>
-    <div class="audience-card">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-      <h3>Property Developers</h3>
-      <p>Seamless integration with your build schedule, from initial hydraulic design through to final system commissioning.</p>
-    </div>
-    <div class="audience-card">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
-      <h3>Block Managers</h3>
-      <p>Comprehensive annual inspection programmes, maintenance, and 24/7 call-outs to keep existing systems fully compliant.</p>
-    </div>
-  </div>
-</section>
 
 
 <!-- ═══════════════ CTA (Multi-Step Form) ═══════════════ -->
@@ -1210,6 +1041,7 @@
     <a href="about.html">About Us</a>
     <a href="index.html#features">Compliance</a>
     <a href="index.html#specs">Performance</a>
+    <a href="bsa-2022.html">BSA 2022</a>
     <a href="index.html#cta">Request Survey</a>
     <a href="privacy.html">Privacy</a>
     <a href="terms.html">Terms</a>
@@ -1221,186 +1053,22 @@
 
 <script>
 
-/* ═══════════════ Frame Sequence ═══════════════ */
-const frameCanvas = document.getElementById('frameCanvas');
-const frameCtx = frameCanvas.getContext('2d');
-const loaderBar = document.getElementById('loaderBar');
-const loaderEl = document.getElementById('loader');
-
-const frameCount = 192;
-const images = new Array(frameCount);
-let imagesLoaded = 0;
-const INITIAL_LOAD_COUNT = 15;
-let loaderDismissed = false;
-
-function loadFrame(i, isInitial = false) {
-  const img = new Image();
-  images[i - 1] = img;
-  const frameNum = i.toString().padStart(4, '0');
-  img.src = `frames/frame_${frameNum}.jpg`;
-  
-  img.onload = () => {
-    imagesLoaded++;
-    if (isInitial && !loaderDismissed) {
-      loaderBar.style.width = `${(imagesLoaded / INITIAL_LOAD_COUNT) * 100}%`;
-    }
-    
-    // Draw the first frame once it loads
-    if (i === 1 || (isInitial && imagesLoaded === 1)) {
-      frameCanvas.width = img.naturalWidth || img.width;
-      frameCanvas.height = img.naturalHeight || img.height;
-      frameCtx.drawImage(img, 0, 0, frameCanvas.width, frameCanvas.height);
-    }
-    
-    if (imagesLoaded >= INITIAL_LOAD_COUNT && !loaderDismissed) {
-      loaderDismissed = true;
-      setTimeout(() => {
-        loaderEl.style.opacity = '0';
-        setTimeout(() => loaderEl.style.display = 'none', 600);
-      }, 200);
-      loadRemainingFrames();
-    }
-  };
-}
-
-function loadRemainingFrames() {
-  for (let i = INITIAL_LOAD_COUNT + 1; i <= frameCount; i++) {
-    loadFrame(i, false);
-  }
-}
-
-// Start loading first batch
-for (let i = 1; i <= INITIAL_LOAD_COUNT; i++) {
-  loadFrame(i, true);
-}
-
-// Fallback to hide loader if images take too long
-setTimeout(() => {
-  if (loaderEl.style.display !== 'none') {
-    loaderEl.style.opacity = '0';
-    setTimeout(() => loaderEl.style.display = 'none', 600);
-    if (!loaderDismissed) {
-      loaderDismissed = true;
-      loadRemainingFrames();
-    }
-  }
-}, 1000);
-
-/* ═══════════════ Annotation Cards + Snap-Stop ═══════════════ */
-const cards = document.querySelectorAll('.annotation-card');
-const SNAP_ZONES = [];
-const HOLD_DURATION = 550;
-let isSnapping = false;
-
-cards.forEach(card => {
-  SNAP_ZONES.push({
-    el: card,
-    show: parseFloat(card.dataset.show),
-    hide: parseFloat(card.dataset.hide),
-    snapped: false
-  });
-});
-
-function updateCards(progress) {
-  for (const zone of SNAP_ZONES) {
-    const visible = progress >= zone.show && progress <= zone.hide;
-    zone.el.classList.toggle('visible', visible);
-    if (visible && !zone.snapped && !isSnapping) {
-      zone.snapped = true;
-      isSnapping = true;
-      document.body.style.overflow = 'hidden';
-      setTimeout(() => {
-        document.body.style.overflow = '';
-        isSnapping = false;
-      }, HOLD_DURATION);
-    }
-    if (!visible && progress < zone.show - 0.05) {
-      zone.snapped = false;
-    }
-  }
-}
-
 /* ═══════════════ Scroll Handler ═══════════════ */
-const scrollAnim = document.querySelector('.scroll-animation');
 const navbar = document.getElementById('navbar');
-const scrollProgress = document.getElementById('scrollProgress');
 let ticking = false;
 
 window.addEventListener('scroll', () => {
   if (!ticking) {
     requestAnimationFrame(() => {
-      // Page-scroll progress bar
-      const docPct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
-      scrollProgress.style.width = docPct + '%';
-
       // Navbar pill toggle (appears after 1st fold)
-      navbar.classList.toggle('nav-scrolled', window.scrollY > window.innerHeight * 0.8);
-
-      // Frame draw + cards
-      const rect = scrollAnim.getBoundingClientRect();
-      const scrollableHeight = scrollAnim.offsetHeight - window.innerHeight;
-      const progress = Math.min(1, Math.max(0, -rect.top / scrollableHeight));
-      
-      const frameIndex = Math.min(
-        frameCount - 1,
-        Math.floor(progress * frameCount)
-      );
-      
-      if (images[frameIndex] && images[frameIndex].complete && frameCanvas.width > 0) {
-        frameCtx.drawImage(images[frameIndex], 0, 0, frameCanvas.width, frameCanvas.height);
+      if (navbar) {
+        navbar.classList.toggle('nav-scrolled', window.scrollY > window.innerHeight * 0.8);
       }
-      
-      updateCards(progress);
       ticking = false;
     });
     ticking = true;
   }
 }, { passive: true });
-
-/* ═══════════════ Specs Count-Up ═══════════════ */
-function easeOutExpo(t) { return t === 1 ? 1 : 1 - Math.pow(2, -10 * t); }
-
-function countUp(el, target, suffix, duration = 1800) {
-  const start = performance.now();
-  el.classList.add('counting');
-  const isInt = target % 1 === 0;
-  function update(now) {
-    const elapsed = now - start;
-    const progress = Math.min(elapsed / duration, 1);
-    const eased = easeOutExpo(progress);
-    const current = eased * target;
-    const numText = isInt ? Math.floor(current) : current.toFixed(1);
-    el.innerHTML = numText + (suffix ? '<span class="spec-suffix">' + suffix + '</span>' : '');
-    if (progress < 1) requestAnimationFrame(update);
-    else {
-      el.innerHTML = (isInt ? target : target.toFixed(1)) + (suffix ? '<span class="spec-suffix">' + suffix + '</span>' : '');
-      el.classList.remove('counting');
-    }
-  }
-  requestAnimationFrame(update);
-}
-
-const specObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const items = entry.target.querySelectorAll('.spec-item');
-      items.forEach((item, i) => {
-        setTimeout(() => {
-          const numEl = item.querySelector('.spec-number');
-          const target = parseFloat(item.dataset.target);
-          const suffix = item.dataset.suffix || '';
-          countUp(numEl, target, suffix);
-        }, i * 200);
-      });
-      specObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.3 });
-
-specObserver.observe(document.getElementById('specs'));
-
-/* ═══════════════ Init ═══════════════ */
-// Video handles its own load event
 
 /* ═══════════════ Multi-Step Form Logic ═══════════════ */
 function nextStep(step) {
@@ -1442,101 +1110,7 @@ function submitForm(e) {
   });
 }
 
-/* ═══════════════ Testimonials Carousel Logic ═══════════════ */
-const testimonialsData = [
-  {
-    tempId: 0,
-    testimonial: "I tried to get quotes from others but were genuinely hard work. QSD were so easy... The engineers were polite and competent and tidy. A genuine 5star company that came as a personal recommendation to me.",
-    by: "les bone, Google Review"
-  },
-  {
-    tempId: 1,
-    testimonial: "QSD, always reliable, responsive and good quality installs. From the initial correspondence, polite and professional and tidy fitters through to sign off and maintenance. No complaints. thank you",
-    by: "Dafydd Evans, Google Review"
-  },
-  {
-    tempId: 2,
-    testimonial: "We've been using QSD to install Mist suppression systems for over 18 months... have always completed jobs to a high standard. The external team are always fantastic to deal with - going above and beyond without ask.",
-    by: "Kyle Logue, Google Review"
-  }
-];
 
-let testimonialsList = [...testimonialsData];
-let cardSize = window.matchMedia("(min-width: 640px)").matches ? 385 : 300;
-const carouselWrapper = document.getElementById('staggerCarousel');
-
-function renderCarousel() {
-  if (!carouselWrapper) return;
-  // Remove existing cards
-  document.querySelectorAll('.testimonial-stagger-card').forEach(el => el.remove());
-  
-  testimonialsList.forEach((testimonial, index) => {
-    const position = testimonialsList.length % 2
-          ? index - Math.floor(testimonialsList.length / 2)
-          : index - testimonialsList.length / 2;
-          
-    const isCenter = position === 0;
-    const card = document.createElement('div');
-    card.className = `testimonial-stagger-card ${isCenter ? 'is-center' : ''}`;
-    
-    // Add inline styles for transform
-    const translateX = (cardSize / 1.5) * position;
-    const translateY = isCenter ? -45 : position % 2 ? 15 : -15;
-    const rotate = isCenter ? 0 : position % 2 ? 2.5 : -2.5;
-    
-    card.style.width = cardSize + 'px';
-    card.style.height = (cardSize * 0.85) + 'px';
-    card.style.transform = `translate(-50%, -50%) translateX(${translateX}px) translateY(${translateY}px) rotate(${rotate}deg)`;
-    
-    card.onclick = () => handleMove(position);
-    
-    card.innerHTML = `
-      <span class="stagger-corner"></span>
-      <div class="stagger-stars">★★★★★</div>
-      <h3 class="stagger-text">"${testimonial.testimonial}"</h3>
-      <p class="stagger-author">- ${testimonial.by}</p>
-    `;
-    
-    // Insert before controls
-    carouselWrapper.insertBefore(card, document.querySelector('.carousel-controls'));
-  });
-}
-
-function handleMove(steps) {
-  if (steps === 0) return;
-  const newList = [...testimonialsList];
-  if (steps > 0) {
-    for (let i = steps; i > 0; i--) {
-      const item = newList.shift();
-      newList.push({ ...item, tempId: Math.random() });
-    }
-  } else {
-    for (let i = steps; i < 0; i++) {
-      const item = newList.pop();
-      newList.unshift({ ...item, tempId: Math.random() });
-    }
-  }
-  testimonialsList = newList;
-  renderCarousel();
-}
-
-const btnPrev = document.getElementById('btnPrev');
-const btnNext = document.getElementById('btnNext');
-if (btnPrev && btnNext) {
-  btnPrev.addEventListener('click', () => handleMove(-1));
-  btnNext.addEventListener('click', () => handleMove(1));
-}
-
-window.addEventListener('resize', () => {
-  const newSize = window.matchMedia("(min-width: 640px)").matches ? 385 : 300;
-  if (newSize !== cardSize) {
-    cardSize = newSize;
-    renderCarousel();
-  }
-});
-
-// Initial render
-renderCarousel();
 
 </script>
 
