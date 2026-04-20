@@ -568,7 +568,7 @@
     .timeline-container {
       position: relative;
       max-width: 1200px;
-      margin: 80px auto 0;
+      margin: 60px auto 0;
       padding: 0 20px;
     }
     .timeline-center-line {
@@ -577,7 +577,7 @@
       top: 16px;
       bottom: 16px;
       width: 2px;
-      border-left: 2px dotted rgba(56, 189, 248, 0.3); /* sky-400 */
+      border-left: 2px dotted rgba(249, 115, 22, 0.3); /* accent */
       transform: translateX(-50%);
       z-index: 1;
       display: none;
@@ -590,7 +590,7 @@
       display: flex;
       flex-direction: column;
       gap: 48px;
-      margin-bottom: 100px;
+      margin-bottom: 80px;
       z-index: 2;
     }
     @media (min-width: 768px) {
@@ -609,10 +609,10 @@
     }
     .timeline-circle-wrapper {
       position: relative;
-      width: 176px; height: 176px;
+      width: 160px; height: 160px;
     }
     @media (min-width: 768px) {
-      .timeline-circle-wrapper { width: 256px; height: 256px; }
+      .timeline-circle-wrapper { width: 220px; height: 220px; }
     }
     .timeline-circle-arcs {
       position: absolute;
@@ -623,47 +623,60 @@
     }
     .timeline-arc-outer {
       position: absolute; inset: 0;
-      border-top: 4px solid rgba(56, 189, 248, 0.2);
+      border-top: 3px solid rgba(249, 115, 22, 0.4);
       border-radius: 50%;
       animation: spin-slow 15s linear infinite;
     }
     .timeline-arc-inner {
       position: absolute; inset: 16px;
-      border-bottom: 2px solid rgba(125, 211, 252, 0.1);
+      border-bottom: 2px solid rgba(249, 115, 22, 0.15);
       border-radius: 50%;
       animation: spin-slow-reverse 25s linear infinite;
     }
     .timeline-circle-main {
       position: relative;
       width: 100%; height: 100%;
-      background: rgba(186, 230, 253, 0.95); /* sky-200 */
-      border: 12px solid #08223d;
+      background: rgba(10, 25, 37, 0.95);
+      border: 3px solid rgba(249, 115, 22, 0.8);
       border-radius: 50%;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 0 50px rgba(0,0,0,0.3);
+      box-shadow: 0 0 40px rgba(249, 115, 22, 0.2), inset 0 0 20px rgba(249, 115, 22, 0.1);
       z-index: 10;
-      transition: transform 0.5s ease;
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
       overflow: hidden;
     }
-    .timeline-circle-wrapper:hover .timeline-circle-main { transform: scale(1.05); }
+    .timeline-circle-wrapper:hover .timeline-circle-main { 
+      transform: scale(1.05); 
+      box-shadow: 0 0 60px rgba(249, 115, 22, 0.4), inset 0 0 30px rgba(249, 115, 22, 0.2);
+    }
     .timeline-circle-glare {
       position: absolute; inset: 0;
-      background: linear-gradient(to bottom right, rgba(255,255,255,0.4), transparent);
+      background: linear-gradient(to bottom right, rgba(255,255,255,0.1), transparent);
       pointer-events: none;
     }
     .timeline-circle-text {
-      color: #0a2e54;
+      color: #fff;
       font-family: var(--font-display);
-      font-weight: 900;
-      font-size: 1.25rem;
+      font-weight: 700;
+      font-size: 1.1rem;
       letter-spacing: -0.02em;
       text-transform: uppercase;
       z-index: 20;
     }
+    .timeline-circle-num {
+      color: var(--accent);
+      font-family: var(--font-mono);
+      font-weight: 500;
+      font-size: 0.85rem;
+      margin-bottom: 4px;
+      opacity: 0.8;
+      z-index: 20;
+    }
     @media (min-width: 768px) {
-      .timeline-circle-text { font-size: 1.5rem; }
+      .timeline-circle-text { font-size: 1.3rem; }
     }
     
     .timeline-dot {
@@ -671,11 +684,11 @@
       position: absolute;
       left: 50%; top: 50%;
       transform: translate(-50%, -50%);
-      width: 20px; height: 20px;
-      background: #38bdf8;
-      border: 4px solid #08223d;
+      width: 24px; height: 24px;
+      background: var(--accent);
+      border: 6px solid #0A1925;
       border-radius: 50%;
-      box-shadow: 0 0 15px rgba(56,189,248,0.5);
+      box-shadow: 0 0 20px rgba(249, 115, 22, 0.6);
       z-index: 20;
     }
     @media (min-width: 768px) {
@@ -699,78 +712,86 @@
     }
     .timeline-card-glow {
       position: absolute;
-      top: -4px; right: -4px; bottom: -4px; left: -4px;
-      background: linear-gradient(to right, rgba(56,189,248,0.2), rgba(59,130,246,0.2));
+      top: -2px; right: -2px; bottom: -2px; left: -2px;
+      background: linear-gradient(135deg, rgba(249, 115, 22, 0.4), transparent 60%);
       border-radius: 16px;
       filter: blur(8px);
       opacity: 0;
       transition: opacity 0.5s ease;
     }
+    .timeline-row.is-odd .timeline-card-glow {
+      background: linear-gradient(-135deg, rgba(249, 115, 22, 0.4), transparent 60%);
+    }
     .timeline-card-wrapper:hover .timeline-card-glow { opacity: 1; }
     .timeline-card {
       position: relative;
-      background: rgba(255,255,255,0.05);
+      background: rgba(255,255,255,0.03);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.08);
       border-radius: 16px;
-      padding: 32px 40px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      padding: 40px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
       transition: border-color 0.5s ease;
       overflow: hidden;
       text-align: left;
     }
-    .timeline-card-wrapper:hover .timeline-card { border-color: rgba(56,189,248,0.3); }
+    .timeline-card-wrapper:hover .timeline-card { border-color: rgba(249, 115, 22, 0.3); }
     .timeline-card-accent {
       position: absolute;
       top: 0; bottom: 0;
-      width: 4px;
-      background: rgba(56,189,248,0.5);
+      width: 3px;
+      background: var(--accent);
     }
     .timeline-row:not(.is-odd) .timeline-card-accent { left: 0; }
     .timeline-row.is-odd .timeline-card-accent { right: 0; }
     
+    .timeline-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+      color: #fff;
+    }
     .timeline-card p {
-      font-size: 1.125rem;
-      color: rgba(240,249,255,0.8);
-      line-height: 1.6;
+      font-size: 1rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
     }
 
     /* Process Background Ambience */
     .process-ambience {
       position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none;
     }
-    .process-bg-base { position: absolute; inset: 0; background: #08223d; }
+    .process-bg-base { position: absolute; inset: 0; background: #0A1925; }
     .process-grid-overlay {
       position: absolute; inset: 0;
-      background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-      background-size: 30px 30px;
+      background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 40px 40px;
     }
     .process-orb-1 {
       position: absolute; top: -10%; left: -10%; width: 60%; height: 60%;
-      background: rgba(59,130,246,0.2); border-radius: 50%; filter: blur(100px);
+      background: rgba(249, 115, 22, 0.08); border-radius: 50%; filter: blur(140px);
       animation: pulse-glow 20s ease-in-out infinite;
     }
     .process-orb-2 {
       position: absolute; bottom: -10%; right: -10%; width: 70%; height: 70%;
-      background: rgba(2,132,199,0.2); border-radius: 50%; filter: blur(120px);
+      background: rgba(249, 115, 22, 0.05); border-radius: 50%; filter: blur(160px);
       animation: pulse-glow-reverse 25s ease-in-out infinite;
     }
     .process-vignette {
       position: absolute; inset: 0;
-      background: radial-gradient(circle at center, transparent 0%, rgba(10,46,84,0.8) 100%);
+      background: radial-gradient(circle at center, transparent 0%, rgba(10,25,37,0.8) 100%);
     }
 
     @keyframes spin-slow { 100% { transform: rotate(360deg); } }
     @keyframes spin-slow-reverse { 100% { transform: rotate(-360deg); } }
     @keyframes pulse-glow {
-      0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.3; }
-      50% { transform: translate(50px, -30px) scale(1.2); opacity: 0.5; }
+      0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.5; }
+      50% { transform: translate(50px, -30px) scale(1.1); opacity: 0.8; }
     }
     @keyframes pulse-glow-reverse {
-      0%, 100% { transform: translate(0, 0) scale(1.2); opacity: 0.2; }
-      50% { transform: translate(-40px, 50px) scale(1); opacity: 0.4; }
+      0%, 100% { transform: translate(0, 0) scale(1.1); opacity: 0.4; }
+      50% { transform: translate(-40px, 50px) scale(1); opacity: 0.7; }
     }
 
     /* Scroll Reveal Utilities */
@@ -1171,7 +1192,7 @@
 
 
 <!-- ═══════════════ Our Process ═══════════════ -->
-<section id="process" style="position: relative; overflow: hidden; padding: 120px 0; background: #08223d; text-align: center; font-family: var(--font-body);">
+<section id="process" style="position: relative; overflow: hidden; padding: 100px 5%; background: #0A1925; border-top: 1px solid rgba(255,255,255,0.05); text-align: center; font-family: var(--font-body);">
   <div class="process-ambience">
     <div class="process-bg-base"></div>
     <div class="process-orb-1"></div>
@@ -1182,10 +1203,9 @@
 
   <div style="position: relative; z-index: 10;">
     <div class="reveal-on-scroll reveal-fade-up" style="margin-bottom: 80px; padding: 0 20px;">
-      <h2 style="font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 900; color: #fff; line-height: 1.1; margin-bottom: 16px; text-transform: uppercase; letter-spacing: -0.02em;">
-        How QSD Fire <br /> Systems Works
-      </h2>
-      <div style="width: 96px; height: 4px; background: #38bdf8; margin: 0 auto; border-radius: 4px; box-shadow: 0 0 10px rgba(56,189,248,0.5);"></div>
+      <p class="section-eyebrow">Our Process</p>
+      <h2 class="section-title">End-to-End Compliance Delivery</h2>
+      <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto; line-height: 1.8;">We handle everything from the initial water pressure test to the final handover certificate, ensuring a seamless experience for your accountable person.</p>
     </div>
 
     <div class="timeline-container">
@@ -1201,7 +1221,8 @@
             </div>
             <div class="timeline-circle-main">
               <div class="timeline-circle-glare"></div>
-              <span class="timeline-circle-text">Design</span>
+              <span class="timeline-circle-num">01</span>
+              <span class="timeline-circle-text">Survey</span>
             </div>
           </div>
         </div>
@@ -1211,7 +1232,8 @@
             <div class="timeline-card-glow"></div>
             <div class="timeline-card">
               <div class="timeline-card-accent"></div>
-              <p>Once your initial enquiry is received, we will utilise the plans of your property alongside a site survey to discuss your needs in detail, before issuing our detailed quotation. From here, we will work with our experienced design team, who will design your residential sprinkler system, all in line with BS 9251:2021.</p>
+              <h3>Survey &amp; Design</h3>
+              <p>We conduct a free site survey, verify mains pressure, and produce fully hydraulically calculated designs to BS 9251:2021 standards.</p>
             </div>
           </div>
         </div>
@@ -1227,7 +1249,8 @@
             </div>
             <div class="timeline-circle-main">
               <div class="timeline-circle-glare"></div>
-              <span class="timeline-circle-text" style="font-size: 1.1rem;">Installation</span>
+              <span class="timeline-circle-num">02</span>
+              <span class="timeline-circle-text">Install</span>
             </div>
           </div>
         </div>
@@ -1237,7 +1260,8 @@
             <div class="timeline-card-glow"></div>
             <div class="timeline-card">
               <div class="timeline-card-accent"></div>
-              <p>Once designs are issued and approved, our IFC-certified team works closely alongside your management to install the residential sprinkler system, executing occupied-flat protocols and ensuring as little disruption to your property and residents as possible.</p>
+              <h3>Installation</h3>
+              <p>Our IFC-certified engineers install your system safely. For retrofits, we employ strict resident-liaison protocols to ensure minimal disruption.</p>
             </div>
           </div>
         </div>
@@ -1253,7 +1277,8 @@
             </div>
             <div class="timeline-circle-main">
               <div class="timeline-circle-glare"></div>
-              <span class="timeline-circle-text" style="font-size: 0.95rem;">Commissioning</span>
+              <span class="timeline-circle-num">03</span>
+              <span class="timeline-circle-text" style="font-size: 0.95rem;">Commission</span>
             </div>
           </div>
         </div>
@@ -1263,7 +1288,8 @@
             <div class="timeline-card-glow"></div>
             <div class="timeline-card">
               <div class="timeline-card-accent"></div>
-              <p>Once the installation is complete, our commissioning process begins. A thorough final pressure inspection is carried out to ensure all design criteria have been met. We then supply the complete handover documentation for your Golden Thread compliance file.</p>
+              <h3>Commissioning</h3>
+              <p>Systems are comprehensively pressure-tested and commissioned, providing you with all necessary handover documentation for your Golden Thread.</p>
             </div>
           </div>
         </div>
@@ -1279,7 +1305,8 @@
             </div>
             <div class="timeline-circle-main">
               <div class="timeline-circle-glare"></div>
-              <span class="timeline-circle-text" style="font-size: 1rem;">Maintenance</span>
+              <span class="timeline-circle-num">04</span>
+              <span class="timeline-circle-text">Maintain</span>
             </div>
           </div>
         </div>
@@ -1289,7 +1316,8 @@
             <div class="timeline-card-glow"></div>
             <div class="timeline-card">
               <div class="timeline-card-accent"></div>
-              <p>With your new sprinkler system in place and commissioned, there's very little else that needs to be done! We offer a fixed-fee annual inspection programme, giving you peace of mind that your system is protecting your property and residents.</p>
+              <h3>Maintenance</h3>
+              <p>We offer fixed-fee annual inspection and maintenance contracts to ensure ongoing regulatory compliance year after year.</p>
             </div>
           </div>
         </div>
