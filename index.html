@@ -1097,7 +1097,7 @@
           <p style="font-size: 0.9rem; color: #94a3b8; font-weight: 500; margin: 0; padding-left: 4px; text-shadow: 0 1px 4px rgba(0,0,0,0.8);">Takes 60 seconds &bull; Receive a compliant proposal within 24 hours</p>
         </div>
         <div class="hero-scroll-indicator" style="margin-top: 60px; animation: bounce 2s infinite;">
-          <a href="#media-accreditations" onclick="document.getElementById('media-accreditations').scrollIntoView({behavior: 'smooth'}); return false;" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.03); backdrop-filter: blur(4px); color: #cbd5e1; transition: all 0.3s ease;">
+          <a href="#media-accreditations" onclick="slowScrollTo('media-accreditations', 3500); return false;" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.03); backdrop-filter: blur(4px); color: #cbd5e1; transition: all 0.3s ease;">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="6 9 12 15 18 9"></polyline>
             </svg>
@@ -1920,6 +1920,33 @@ if (revealElements.length > 0) {
   });
 
   revealElements.forEach(el => revealObserver.observe(el));
+}
+
+/* ═══════════════ Custom Slow Scroll ═══════════════ */
+function slowScrollTo(targetId, duration) {
+  const target = document.getElementById(targetId);
+  if (!target) return;
+  const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
+  const startPosition = window.pageYOffset;
+  const distance = targetPosition - startPosition;
+  let startTime = null;
+
+  function animation(currentTime) {
+    if (startTime === null) startTime = currentTime;
+    const timeElapsed = currentTime - startTime;
+    const run = easeInOutQuad(timeElapsed, startPosition, distance, duration);
+    window.scrollTo(0, run);
+    if (timeElapsed < duration) requestAnimationFrame(animation);
+  }
+
+  function easeInOutQuad(t, b, c, d) {
+    t /= d / 2;
+    if (t < 1) return c / 2 * t * t + b;
+    t--;
+    return -c / 2 * (t * (t - 2) - 1) + b;
+  }
+
+  requestAnimationFrame(animation);
 }
 
 </script>
