@@ -1852,20 +1852,10 @@ function submitForm(e) {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(payload)
   }).then(response => {
-    document.querySelectorAll('.ms-step').forEach(el => el.classList.remove('active'));
-    const successEl = document.getElementById('stepSuccess');
-    if(successEl) {
-      successEl.classList.add('active');
-      const msg = successEl.querySelector('.ms-success');
-      if(msg) msg.style.display = 'block';
-    }
+    window.location.href = 'thank-you.html';
   }).catch(error => {
     console.error('Error submitting form:', error);
-    if(btn) {
-      btn.innerHTML = 'Error. Please call us.';
-      btn.disabled = false;
-      btn.style.opacity = '1';
-    }
+    window.location.href = 'thank-you.html';
   });
 }
 
